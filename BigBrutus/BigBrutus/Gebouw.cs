@@ -14,10 +14,11 @@ namespace BigBrutus
             Naam = naam;
         }
 
-        public void VoegZoneToe(string naam)
+        public Zone VoegZoneToe(string naam)
         {
             Zone nieuw = new Zone(naam);
             zones.Add(nieuw);
+            return nieuw;
         }
     }
 }
