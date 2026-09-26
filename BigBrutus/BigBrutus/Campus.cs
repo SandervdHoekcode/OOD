@@ -7,9 +7,9 @@ namespace BigBrutus
 {
     public class Campus
     {
-        public string Naam {  get; private set;  }
+        public string Naam { get; private set; }
 
-        private List<Gebouw> gebouwen = new List<Gebouw>();
+        public List<Gebouw> gebouwen = new List<Gebouw>();
 
         public Campus(string naam)
         {
@@ -21,5 +21,18 @@ namespace BigBrutus
             gebouwen.Add(nieuw);
             return nieuw;
         }
+        // 1. Print de naam van de campus
+        // 2. Loop door alle gebouwen in de lijst
+        //    3. Print per gebouw zijn naam
+
+        public void ToonOverzicht()
+        {
+            Console.WriteLine(Naam);
+            foreach (Gebouw gebouw in gebouwen)
+            {
+                Console.WriteLine(gebouw.Naam);
+            }
+        }
+                
     }
 }

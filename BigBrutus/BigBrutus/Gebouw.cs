@@ -7,7 +7,7 @@ namespace BigBrutus
     public class Gebouw
     {
         public string Naam { get; private set; }
-        private List<Zone> zones = new List<Zone>();
+        public List<Zone> zones = new List<Zone>();
 
         public Gebouw(string naam)
         {
