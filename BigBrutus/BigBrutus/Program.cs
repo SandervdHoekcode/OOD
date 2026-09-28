@@ -6,36 +6,33 @@ namespace BigBrutus
 {
     public class Program
     {
-        // 1. Maak een campus aan en bewaar hem in een variabele
-        // 2. Voeg via de campus een gebouw "Alfa" toe en bewaar het teruggegeven gebouw
-        // 3. Voeg via de campus een gebouw "Beta" toe en bewaar het
-        // 4. Voeg via gebouw Alfa twee zones toe
-        // 5. Voeg via gebouw Beta één zone toe
-        // 6. Laat de campus zijn overzicht printen
-
-
-
         static void Main(string[] args)
         {
             Campus campus = new Campus("CHE");
 
 
-            campus.VoegGebouwToe("Alfa");
-            Gebouw Alfa = new Gebouw("Alfa");
-            campus.VoegGebouwToe("Beta");
-            Gebouw Beta = new Gebouw("Beta");
+            Gebouw alfa = campus.VoegGebouwToe("Alfa");
+            Gebouw beta = campus.VoegGebouwToe("Beta");
 
-            Alfa.VoegZoneToe("A");            
-            Alfa.VoegZoneToe("B");
-            Zone A_A = new Zone("A");
-            Zone A_B = new Zone("B");
-            Beta.VoegZoneToe("A");
-            Beta.VoegZoneToe("B");
-            Zone B_A = new Zone("A");
-            Zone B_B = new Zone("B");
+            Zone alfaZoneA = alfa.VoegZoneToe("A");
+            Zone alfaZoneB = alfa.VoegZoneToe("B");
+            Zone betaZoneA = beta.VoegZoneToe("A");
+            Zone betaZoneB = beta.VoegZoneToe("B");
+
+            DimbareLamp lamp = new DimbareLamp("lamp", 60, 80);
+            Thermostaat thermostaat = new Thermostaat("thermostaat", 40, 23);
+            Sensor temperatuursensor = new Sensor("TemperatuurSensor");
+            alfaZoneA.VoegApparaatToe(lamp);
+            betaZoneB.VoegSensorToe(temperatuursensor);
+            betaZoneB.VoegApparaatToe(thermostaat);
+            temperatuursensor.RegistreerMeting(21.5);
+            lamp.ZetAan();
+            Console.WriteLine(lamp.IsAan);
 
             campus.ToonOverzicht();
-        
+
+
+
         }
     }
 }
