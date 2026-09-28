@@ -11,7 +11,7 @@ namespace BigBrutus
         public double Vermogen { get; private set; }
         public bool IsAan { get; private set; }
 
-    public Apparaat (string naam, double vermogen, bool isaan)
+    public Apparaat (string naam, double vermogen)
         {
             Naam = naam;
             Vermogen = vermogen;

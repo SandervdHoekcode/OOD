@@ -21,9 +21,6 @@ namespace BigBrutus
             gebouwen.Add(nieuw);
             return nieuw;
         }
-        // 1. Print de naam van de campus
-        // 2. Loop door alle gebouwen in de lijst
-        //    3. Print per gebouw zijn naam
 
         public void ToonOverzicht()
         {

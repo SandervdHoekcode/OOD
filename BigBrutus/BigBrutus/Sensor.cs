@@ -9,7 +9,7 @@ namespace BigBrutus
         public string Naam { get; private set; }
         public double Meetwaarde { get; private set; }
 
-        public Sensor(string naam)
+        public Sensor(string naam, double meetwaarde)
         {
             Naam = naam;
         }
