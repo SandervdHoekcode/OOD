@@ -37,6 +37,20 @@ namespace BigBrutus
             new Gebeurtenis(Ernstniveau.Warning, "Temperatuur te hoog");
 
             campus.ToonOverzicht();
+
+            Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
+
+logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Informational, "Lamp aangezet"));
+logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Warning, "Temperatuur hoog"));
+logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Critical, "Sensor offline"));
+logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Warning, "Ventilator traag"));
+
+List<Gebeurtenis> warnings = logboek.FilterOpErnst(Ernstniveau.Critical);
+
+foreach (Gebeurtenis g in warnings)
+{
+    Console.WriteLine($"{g.Tijd} - {g.Ernst}: {g.Omschrijving}");
+}
         }
     }
 }
