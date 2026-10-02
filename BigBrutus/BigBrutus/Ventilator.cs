@@ -4,7 +4,8 @@ using System.Text;
 
 namespace BigBrutus
 {
-    internal class Ventilator
+    public class Ventilator : Apparaat
     {
+        public Ventilator(string naam, double vermogen) : base(naam, vermogen) { }
     }
 }

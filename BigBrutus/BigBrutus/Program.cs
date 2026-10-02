@@ -21,10 +21,16 @@ namespace BigBrutus
 
             DimbareLamp lamp = new DimbareLamp("lamp", 60, 80);
             Thermostaat thermostaat = new Thermostaat("thermostaat", 40, 23);
-            TemperatuurSensor temperatuursensor = new TemperatuurSensor("temperatuursensor");
+            TemperatuurSensor temperatuursensor = new TemperatuurSensor("TemperatuurSensor");
+            EnergieSensor energiesensor = new EnergieSensor("EnergieSensor");
+            BewegingsSensor beweginssensor = new BewegingsSensor("BeweginsSensor");
+            Ventilator ventilator = new Ventilator("Ventilator", 35);
             alfaZoneA.VoegApparaatToe(lamp);
             betaZoneB.VoegSensorToe(temperatuursensor);
             betaZoneB.VoegApparaatToe(thermostaat);
+            alfaZoneB.VoegSensorToe(energiesensor);
+            betaZoneA.VoegSensorToe(beweginssensor);
+            betaZoneA.VoegApparaatToe(ventilator);
             temperatuursensor.RegistreerMeting(21.5);
             lamp.ZetAan();
             Console.WriteLine(lamp.IsAan);
