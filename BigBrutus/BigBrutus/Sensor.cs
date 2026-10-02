@@ -4,15 +4,11 @@ using System.Text;
 
 namespace BigBrutus
 {
-    public class Sensor
+    public abstract class Sensor : HardwareComponent
     {
-        public string Naam { get; private set; }
         public double Meetwaarde { get; private set; }
 
-        public Sensor(string naam)
-        {
-            Naam = naam;
-        }
+        public Sensor(string naam) : base(naam) { }
 
         public void RegistreerMeting(double waarde)
         {

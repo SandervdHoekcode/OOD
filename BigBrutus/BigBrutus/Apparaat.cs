@@ -5,15 +5,13 @@ using System.Text;
 namespace BigBrutus
 {
 
-    public class Apparaat
+    public abstract class Apparaat : HardwareComponent
     {
-        public string Naam { get; private set; }
         public double Vermogen { get; private set; }
         public bool IsAan { get; private set; }
 
-    public Apparaat (string naam, double vermogen)
+    public Apparaat (string naam, double vermogen) : base (naam)
         {
-            Naam = naam;
             Vermogen = vermogen;
         }
     public void ZetAan()

@@ -21,7 +21,7 @@ namespace BigBrutus
 
             DimbareLamp lamp = new DimbareLamp("lamp", 60, 80);
             Thermostaat thermostaat = new Thermostaat("thermostaat", 40, 23);
-            Sensor temperatuursensor = new Sensor("TemperatuurSensor");
+            TemperatuurSensor temperatuursensor = new TemperatuurSensor("temperatuursensor");
             alfaZoneA.VoegApparaatToe(lamp);
             betaZoneB.VoegSensorToe(temperatuursensor);
             betaZoneB.VoegApparaatToe(thermostaat);
