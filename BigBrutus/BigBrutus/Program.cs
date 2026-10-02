@@ -1,4 +1,5 @@
 ﻿
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,7 +10,6 @@ namespace BigBrutus
         static void Main(string[] args)
         {
             Campus campus = new Campus("CHE");
-
 
             Gebouw alfa = campus.VoegGebouwToe("Alfa");
             Gebouw beta = campus.VoegGebouwToe("Beta");
@@ -34,11 +34,9 @@ namespace BigBrutus
             temperatuursensor.RegistreerMeting(21.5);
             lamp.ZetAan();
             Console.WriteLine(lamp.IsAan);
+            new Gebeurtenis(Ernstniveau.Warning, "Temperatuur te hoog");
 
             campus.ToonOverzicht();
-
-
-
         }
     }
 }
