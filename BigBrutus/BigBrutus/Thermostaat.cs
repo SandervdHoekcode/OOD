@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;      
+using System.Text;
 
 namespace BigBrutus
 {
@@ -22,14 +22,30 @@ namespace BigBrutus
                 temperatuur = value;
             }
         }
-        public Thermostaat (string naam, double vermogen, double temperatuur) : base(naam, vermogen)
+        public Thermostaat(string naam, double vermogen, double temperatuur) : base(naam, vermogen)
         {
             Temperatuur = temperatuur;
         }
 
+        public override double BerekenHuidigVerbruik()
+        {
+            if (IsAan == false)
+                return 0;
+            else
+            {
+                return 40;
+            }
+        }
         public override string VoerDiagnoseUit()
         {
-            return $"{Naam}: in orde";
+            string status;
+
+            if (IsAan == true)
+                status = "aan";
+            else
+                status = "uit";
+
+            return $"{Naam} staat {status}, de temperatuur is {Temperatuur}, het vermogen is {BerekenHuidigVerbruik()}";
         }
     }
 }

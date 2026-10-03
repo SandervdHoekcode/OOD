@@ -24,7 +24,7 @@ namespace BigBrutus
             TemperatuurSensor temperatuursensor = new TemperatuurSensor("TemperatuurSensor");
             EnergieSensor energiesensor = new EnergieSensor("EnergieSensor");
             BewegingsSensor beweginssensor = new BewegingsSensor("BeweginsSensor");
-            Ventilator ventilator = new Ventilator("Ventilator", 35);
+            Ventilator ventilator = new Ventilator("Ventilator", 40, VentilatorStanden.laag);
             alfaZoneA.VoegComponentToe(lamp);
             betaZoneB.VoegComponentToe(temperatuursensor);
             betaZoneB.VoegComponentToe(thermostaat);
@@ -33,11 +33,13 @@ namespace BigBrutus
             betaZoneA.VoegComponentToe(ventilator);
             temperatuursensor.RegistreerMeting(21.5);
             lamp.ZetUit();
+            thermostaat.ZetAan();
+            ventilator.ZetAan();
             Console.WriteLine(lamp.IsAan);
 
+
             campus.ToonOverzicht();
-            Console.WriteLine(lamp.BerekenHuidigVerbruik());
-            Console.WriteLine(lamp.VoerDiagnoseUit());
+            Console.WriteLine(ventilator.VoerDiagnoseUit());
 
             
 
