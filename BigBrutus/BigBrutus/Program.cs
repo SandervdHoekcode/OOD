@@ -37,20 +37,27 @@ namespace BigBrutus
             new Gebeurtenis(Ernstniveau.Warning, "Temperatuur te hoog");
 
             campus.ToonOverzicht();
-
+            
             Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
 
-logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Informational, "Lamp aangezet"));
-logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Warning, "Temperatuur hoog"));
-logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Critical, "Sensor offline"));
-logboek.VoegGebeurtenisToe(new Gebeurtenis(Ernstniveau.Warning, "Ventilator traag"));
+            Gebeurtenis eerste = new Gebeurtenis(Ernstniveau.Informational, "Lamp aangezet");
+            System.Threading.Thread.Sleep(50);
+            Gebeurtenis tweede = new Gebeurtenis(Ernstniveau.Warning, "Temperatuur hoog");
+            System.Threading.Thread.Sleep(50);
+            Gebeurtenis derde = new Gebeurtenis(Ernstniveau.Critical, "Sensor offline");
 
-List<Gebeurtenis> warnings = logboek.FilterOpErnst(Ernstniveau.Critical);
+            // bewust in een andere volgorde toevoegen
+            logboek.VoegGebeurtenisToe(derde);
+            logboek.VoegGebeurtenisToe(eerste);
+            logboek.VoegGebeurtenisToe(tweede);
 
-foreach (Gebeurtenis g in warnings)
-{
-    Console.WriteLine($"{g.Tijd} - {g.Ernst}: {g.Omschrijving}");
-}
+            List<Gebeurtenis> overzicht = logboek.ChronologischOverzicht();
+
+            foreach (Gebeurtenis g in overzicht)
+            {
+                Console.WriteLine($"{g.Tijd:HH:mm:ss.fff} - {g.Ernst}: {g.Omschrijving}");
+            }
+
         }
     }
 }

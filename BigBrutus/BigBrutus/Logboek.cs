@@ -27,5 +27,10 @@ namespace BigBrutus
 
             return resultaat;
         }
+
+        public List<T> ChronologischOverzicht()
+        {
+            return gebeurtenissen.OrderBy(item => item.Tijd).ToList();
+        }
     }
 }
