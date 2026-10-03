@@ -7,5 +7,11 @@ namespace BigBrutus
     public class Ventilator : Apparaat
     {
         public Ventilator(string naam, double vermogen) : base(naam, vermogen) { }
+
+
+        public override string VoerDiagnoseUit()
+        {
+            return $"{Naam}: in orde";
+        }
     }
 }

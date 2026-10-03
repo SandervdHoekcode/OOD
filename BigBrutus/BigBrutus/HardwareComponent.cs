@@ -12,5 +12,7 @@ namespace BigBrutus
         {
             Naam = naam;
         }
+        public abstract string VoerDiagnoseUit();
+        public virtual double BerekenHuidigVerbruik() { return 0; }
     }
 }

@@ -6,6 +6,12 @@ namespace BigBrutus
 {
     public class TemperatuurSensor : Sensor
     {
-        public TemperatuurSensor (string naam) : base (naam) { }
+        public TemperatuurSensor(string naam) : base(naam) { }
+
+
+        public override string VoerDiagnoseUit()
+        {
+            return $"{Naam}: in orde";
+        }
     }
 }

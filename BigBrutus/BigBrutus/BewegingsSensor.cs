@@ -7,5 +7,11 @@ namespace BigBrutus
     public class BewegingsSensor : Sensor
     {
         public BewegingsSensor(string naam) : base(naam) { }
-    }
+
+
+        public override string VoerDiagnoseUit()
+        {
+            return $"{Naam}: in orde";
+        }
+    } 
 }

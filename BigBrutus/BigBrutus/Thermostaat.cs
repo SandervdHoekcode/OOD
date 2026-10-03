@@ -26,5 +26,10 @@ namespace BigBrutus
         {
             Temperatuur = temperatuur;
         }
+
+        public override string VoerDiagnoseUit()
+        {
+            return $"{Naam}: in orde";
+        }
     }
 }

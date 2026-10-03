@@ -28,6 +28,11 @@ namespace BigBrutus
         {
             Helderheid = helderheid;
         }
+
+        public override string VoerDiagnoseUit()
+        {
+            return $"{Naam}: in orde";
+        }
     }
 }
 
