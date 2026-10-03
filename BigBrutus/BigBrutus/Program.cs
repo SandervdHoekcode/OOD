@@ -25,12 +25,12 @@ namespace BigBrutus
             EnergieSensor energiesensor = new EnergieSensor("EnergieSensor");
             BewegingsSensor beweginssensor = new BewegingsSensor("BeweginsSensor");
             Ventilator ventilator = new Ventilator("Ventilator", 35);
-            alfaZoneA.VoegApparaatToe(lamp);
-            betaZoneB.VoegSensorToe(temperatuursensor);
-            betaZoneB.VoegApparaatToe(thermostaat);
-            alfaZoneB.VoegSensorToe(energiesensor);
-            betaZoneA.VoegSensorToe(beweginssensor);
-            betaZoneA.VoegApparaatToe(ventilator);
+            alfaZoneA.VoegComponentToe(lamp);
+            betaZoneB.VoegComponentToe(temperatuursensor);
+            betaZoneB.VoegComponentToe(thermostaat);
+            alfaZoneB.VoegComponentToe(energiesensor);
+            betaZoneA.VoegComponentToe(beweginssensor);
+            betaZoneA.VoegComponentToe(ventilator);
             temperatuursensor.RegistreerMeting(21.5);
             lamp.ZetAan();
             Console.WriteLine(lamp.IsAan);

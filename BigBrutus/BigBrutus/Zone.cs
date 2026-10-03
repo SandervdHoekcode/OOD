@@ -12,16 +12,11 @@ namespace BigBrutus
         {
             Naam = naam;
         }
-        public List<Apparaat> apparaten = new List<Apparaat>();
-        public List<Sensor> sensoren = new List<Sensor>();
+        public List<HardwareComponent> hardwarecomponents = new List<HardwareComponent>();
 
-        public void VoegApparaatToe(Apparaat apparaat)
+        public void VoegComponentToe (HardwareComponent component)
         {
-            apparaten.Add(apparaat);
-        }
-        public void VoegSensorToe(Sensor sensor)
-        {
-            sensoren.Add(sensor); 
+            hardwarecomponents.Add(component);
         }
        
     }
