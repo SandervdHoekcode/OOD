@@ -32,12 +32,14 @@ namespace BigBrutus
             betaZoneA.VoegComponentToe(beweginssensor);
             betaZoneA.VoegComponentToe(ventilator);
             temperatuursensor.RegistreerMeting(21.5);
-            lamp.ZetAan();
+            lamp.ZetUit();
             Console.WriteLine(lamp.IsAan);
 
             campus.ToonOverzicht();
+            Console.WriteLine(lamp.BerekenHuidigVerbruik());
+            Console.WriteLine(lamp.VoerDiagnoseUit());
 
-
+            
 
             Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
 

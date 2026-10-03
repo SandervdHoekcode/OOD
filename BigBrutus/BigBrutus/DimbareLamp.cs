@@ -28,10 +28,25 @@ namespace BigBrutus
         {
             Helderheid = helderheid;
         }
-
+        public override double BerekenHuidigVerbruik()
+        {
+            if (IsAan == false)
+                return 0;
+            else
+            {
+                return Vermogen * Helderheid / 100.0;
+            }
+        }
         public override string VoerDiagnoseUit()
         {
-            return $"{Naam}: in orde";
+            string status;
+
+            if (IsAan == true)
+                status = "aan";
+            else
+                status = "uit";
+
+            return $"{Naam} staat {status} met een helderheid van {Helderheid} en een vermogen van {BerekenHuidigVerbruik()}";
         }
     }
 }
