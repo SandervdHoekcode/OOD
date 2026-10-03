@@ -20,5 +20,16 @@ namespace BigBrutus
             zones.Add(nieuw);
             return nieuw;
         }
+
+        public void ToonOverzicht()
+        {
+            Console.WriteLine($"Gebouw: {Naam}");
+            foreach (Zone zone in zones)
+            {
+                zone.ToonOverzicht();
+            }
+
+        }
+
     }
 }

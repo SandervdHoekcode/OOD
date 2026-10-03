@@ -27,7 +27,7 @@ namespace BigBrutus
             Console.WriteLine(Naam);
             foreach (Gebouw gebouw in gebouwen)
             {
-                Console.WriteLine(gebouw.Naam);
+                gebouw.ToonOverzicht();
             }
         }
                 

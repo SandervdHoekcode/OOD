@@ -34,10 +34,11 @@ namespace BigBrutus
             temperatuursensor.RegistreerMeting(21.5);
             lamp.ZetAan();
             Console.WriteLine(lamp.IsAan);
-            new Gebeurtenis(Ernstniveau.Warning, "Temperatuur te hoog");
 
             campus.ToonOverzicht();
-            
+
+
+
             Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
 
             Gebeurtenis eerste = new Gebeurtenis(Ernstniveau.Informational, "Lamp aangezet");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BigBrutus
@@ -17,6 +18,15 @@ namespace BigBrutus
         public void VoegComponentToe (HardwareComponent component)
         {
             hardwarecomponents.Add(component);
+        }
+
+        public void ToonOverzicht()
+        {
+            Console.WriteLine($"zone: {Naam}");
+            foreach (HardwareComponent component in hardwarecomponents)
+            {
+                Console.WriteLine(component.Naam);
+            }
         }
        
     }
