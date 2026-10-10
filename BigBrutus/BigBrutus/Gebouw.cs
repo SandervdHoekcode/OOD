@@ -31,5 +31,17 @@ namespace BigBrutus
 
         }
 
+        public List<HardwareComponent> ZonesUitpakken()
+        {
+            List<HardwareComponent> compList = new List<HardwareComponent>();
+
+            foreach (Zone zone in zones)
+            {
+                compList.AddRange(zone.Doorgeven());
+            }
+            return compList;
+        }
+
+
     }
 }

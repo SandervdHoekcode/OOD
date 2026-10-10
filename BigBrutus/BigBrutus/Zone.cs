@@ -15,7 +15,7 @@ namespace BigBrutus
         }
         public List<HardwareComponent> hardwarecomponents = new List<HardwareComponent>();
 
-        public void VoegComponentToe (HardwareComponent component)
+        public void VoegComponentToe(HardwareComponent component)
         {
             hardwarecomponents.Add(component);
         }
@@ -28,6 +28,11 @@ namespace BigBrutus
                 Console.WriteLine(component.Naam);
             }
         }
-       
+
+        public List<HardwareComponent> Doorgeven()
+        {
+            return hardwarecomponents;
+
+        }
     }
-}   
+}

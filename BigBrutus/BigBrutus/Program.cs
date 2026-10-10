@@ -32,6 +32,8 @@ namespace BigBrutus
             betaZoneA.VoegComponentToe(beweginssensor);
             betaZoneA.VoegComponentToe(ventilator);
             temperatuursensor.RegistreerMeting(21.5);
+            energiesensor.RegistreerMeting(44);
+            beweginssensor.RegistreerMeting(0);
             lamp.ZetUit();
             thermostaat.ZetAan();
             ventilator.ZetAan();
@@ -40,8 +42,14 @@ namespace BigBrutus
 
             campus.ToonOverzicht();
             Console.WriteLine(ventilator.VoerDiagnoseUit());
+            Console.WriteLine(temperatuursensor.VoerDiagnoseUit());
+            Console.WriteLine(energiesensor.VoerDiagnoseUit());
+            Console.WriteLine(beweginssensor.VoerDiagnoseUit());
+            Console.WriteLine(betaZoneA.Doorgeven().Count);
+            Console.WriteLine(beta.ZonesUitpakken().Count);
 
-            
+
+
 
             Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
 
@@ -63,6 +71,7 @@ namespace BigBrutus
                 Console.WriteLine($"{g.Tijd:HH:mm:ss.fff} - {g.Ernst}: {g.Omschrijving}");
             }
 
+            
         }
     }
 }

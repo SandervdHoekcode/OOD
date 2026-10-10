@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace BigBrutus
@@ -11,7 +12,13 @@ namespace BigBrutus
 
         public override string VoerDiagnoseUit()
         {
-            return $"{Naam}: in orde";
+            string beweging;
+
+            if (Meetwaarde == 0)
+                beweging = "geen";
+            else
+                beweging = "wel";
+            return $"{Naam}: heeft {beweging} beweging opgemerkt";
         }
     } 
 }

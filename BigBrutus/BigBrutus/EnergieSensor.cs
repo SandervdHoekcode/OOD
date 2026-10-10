@@ -6,7 +6,7 @@
 
         public override string VoerDiagnoseUit()
         {
-            return $"{Naam}: in orde";
+            return $"{Naam}: meet een waarde van {Meetwaarde}W";
         }
     }
 }
