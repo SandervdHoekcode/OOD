@@ -30,6 +30,17 @@ namespace BigBrutus
                 gebouw.ToonOverzicht();
             }
         }
+
+        public List<HardwareComponent> AlleComponents()
+        {
+            List<HardwareComponent> allcomplist = new List<HardwareComponent>();
+
+            foreach (Gebouw gebouw in gebouwen)
+            {
+                allcomplist.AddRange(gebouw.Doorgeven());
+            }
+            return allcomplist;
+        }
                 
     }
 }

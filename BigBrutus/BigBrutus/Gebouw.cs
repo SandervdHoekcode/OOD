@@ -31,7 +31,7 @@ namespace BigBrutus
 
         }
 
-        public List<HardwareComponent> ZonesUitpakken()
+        public List<HardwareComponent> Doorgeven()
         {
             List<HardwareComponent> compList = new List<HardwareComponent>();
 

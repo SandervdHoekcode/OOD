@@ -45,8 +45,8 @@ namespace BigBrutus
             Console.WriteLine(temperatuursensor.VoerDiagnoseUit());
             Console.WriteLine(energiesensor.VoerDiagnoseUit());
             Console.WriteLine(beweginssensor.VoerDiagnoseUit());
-            Console.WriteLine(betaZoneA.Doorgeven().Count);
-            Console.WriteLine(beta.ZonesUitpakken().Count);
+            Console.WriteLine(beta.Doorgeven().Count);
+            Console.WriteLine(campus.AlleComponents().Count);
 
 
 
