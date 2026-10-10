@@ -10,6 +10,7 @@ namespace BigBrutus
         static void Main(string[] args)
         {
             Campus campus = new Campus("CHE");
+            CampusManager manager = new CampusManager(campus);
 
             Gebouw alfa = campus.VoegGebouwToe("Alfa");
             Gebouw beta = campus.VoegGebouwToe("Beta");
@@ -37,16 +38,12 @@ namespace BigBrutus
             lamp.ZetUit();
             thermostaat.ZetAan();
             ventilator.ZetAan();
-            Console.WriteLine(lamp.IsAan);
 
 
             campus.ToonOverzicht();
-            Console.WriteLine(ventilator.VoerDiagnoseUit());
-            Console.WriteLine(temperatuursensor.VoerDiagnoseUit());
-            Console.WriteLine(energiesensor.VoerDiagnoseUit());
-            Console.WriteLine(beweginssensor.VoerDiagnoseUit());
-            Console.WriteLine(beta.Doorgeven().Count);
-            Console.WriteLine(campus.AlleComponents().Count);
+            Console.WriteLine("Totaalberekeing:");
+            Console.WriteLine(manager.BerekenTotaalEnergieverbruik());
+            manager.RunCampusDiagnose();
 
 
 
