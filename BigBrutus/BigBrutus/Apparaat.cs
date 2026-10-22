@@ -5,7 +5,7 @@ using System.Text;
 namespace BigBrutus
 {
 
-    public abstract class Apparaat : HardwareComponent
+    public abstract class Apparaat : HardwareComponent, IAanstuurbaar, IEnergieverbruiker
     {
         public double Vermogen { get; private set; }
         public bool IsAan { get; private set; }

@@ -20,5 +20,14 @@ namespace BigBrutus
                 beweging = "wel";
             return $"{Naam}: heeft {beweging} beweging opgemerkt";
         }
+
+        public override bool IsInAlarm(double grenswaarde)
+        {
+            if (Meetwaarde == 0)
+                return false;
+            else
+                return true;
+
+        }
     } 
 }

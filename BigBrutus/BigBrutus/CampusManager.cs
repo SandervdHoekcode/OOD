@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BigBrutus
 {
@@ -17,7 +18,7 @@ namespace BigBrutus
         {
             double totaal = 0;
 
-            foreach (HardwareComponent component in campus.AlleComponents())
+            foreach (HardwareComponent component in campus.AlleComponents().OfType<IEnergieverbruiker>())
             {
                 totaal += component.BerekenHuidigVerbruik();
             }
@@ -30,6 +31,14 @@ namespace BigBrutus
             foreach (HardwareComponent component in campus.AlleComponents())
             {
                 Console.WriteLine(component.VoerDiagnoseUit());
+            }
+        }
+
+        public void ZetAlleApparatenUit()
+        {
+            foreach (IAanstuurbaar apparaat in campus.AlleComponents().OfType<IAanstuurbaar>())
+            {
+                apparaat.ZetUit();
             }
         }
 

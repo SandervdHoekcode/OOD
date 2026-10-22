@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BigBrutus
 {
-    public abstract class Sensor : HardwareComponent
+    public abstract class Sensor : HardwareComponent, IAlertbaar
     {
         public double Meetwaarde { get; private set; }
 
@@ -14,6 +14,14 @@ namespace BigBrutus
         {
             Meetwaarde = waarde;
 
+        }
+
+        public virtual bool IsInAlarm(double grenswaarde)
+        {
+            if (Meetwaarde > grenswaarde )
+                return true;
+            else
+                return false;
         }
     }
 }

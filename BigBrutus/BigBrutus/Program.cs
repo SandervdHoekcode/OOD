@@ -39,14 +39,13 @@ namespace BigBrutus
             thermostaat.ZetAan();
             ventilator.ZetAan();
 
-
             campus.ToonOverzicht();
             Console.WriteLine("Totaalberekeing:");
             Console.WriteLine(manager.BerekenTotaalEnergieverbruik());
             manager.RunCampusDiagnose();
-
-
-
+            
+            manager.ZetAlleApparatenUit();
+            Console.WriteLine(manager.BerekenTotaalEnergieverbruik());
 
             Logboek<Gebeurtenis> logboek = new Logboek<Gebeurtenis>();
 
@@ -56,7 +55,7 @@ namespace BigBrutus
             System.Threading.Thread.Sleep(50);
             Gebeurtenis derde = new Gebeurtenis(Ernstniveau.Critical, "Sensor offline");
 
-            // bewust in een andere volgorde toevoegen
+            // bewust in een andere volgorde toegevoegd
             logboek.VoegGebeurtenisToe(derde);
             logboek.VoegGebeurtenisToe(eerste);
             logboek.VoegGebeurtenisToe(tweede);
@@ -68,7 +67,14 @@ namespace BigBrutus
                 Console.WriteLine($"{g.Tijd:HH:mm:ss.fff} - {g.Ernst}: {g.Omschrijving}");
             }
 
-            
+            temperatuursensor.RegistreerMeting(40);
+            Regel max30 = new Regel(30);
+            Regel max50 = new Regel(50);
+            Console.WriteLine($"Grens 30: {max30.Controleer(temperatuursensor)}");
+            Console.WriteLine($"Grens 50: {max50.Controleer(temperatuursensor)}");
+
+            beweginssensor.RegistreerMeting(1);
+            Console.WriteLine($"Beweging: {max30.Controleer(beweginssensor)}");
         }
     }
 }
