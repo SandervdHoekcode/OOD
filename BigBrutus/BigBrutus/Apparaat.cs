@@ -9,19 +9,33 @@ namespace BigBrutus
     {
         public double Vermogen { get; private set; }
         public bool IsAan { get; private set; }
+        public bool IsOnline { get; private set; }
 
-    public Apparaat (string naam, double vermogen) : base (naam)
+        public Apparaat(string naam, double vermogen) : base(naam)
         {
             Vermogen = vermogen;
+            IsOnline = true;
         }
-    public void ZetAan()
+        public void ZetAan()
         {
+            if (IsOnline == false)
+            throw new ApparaatOfflineException(Naam);
+            
             IsAan = true;
         }
-    public void ZetUit()
+        public void ZetUit()
         {
             IsAan = false;
-        }    
-    }
+        }
 
+        public void ZetOffline()
+        {
+            IsOnline = false;
+        }
+
+        public void ZetOnline()
+        {
+            IsOnline = true;
+        }
+    }
 }

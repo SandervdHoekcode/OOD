@@ -42,6 +42,14 @@ namespace BigBrutus
             return compList;
         }
 
-
+        public Zone ZoekZone(string naam)
+        {
+            foreach (Zone zone in zones)
+            {
+                if (zone.Naam == naam)
+                    return zone;
+            }
+            throw new ZoneNietGevondenException(naam);
+        }
     }
 }
