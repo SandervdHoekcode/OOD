@@ -1,4 +1,5 @@
 ﻿
+using BigBrutus.BigBrutus;
 using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
@@ -58,14 +59,38 @@ namespace BigBrutus
             Regel max30 = new Regel(30);
             Regel max50 = new Regel(50);
 
-            lamp.ZetOffline();
+            // 1. Thermostaat: temperatuur buiten −20…60
             try
             {
-                lamp.ZetAan();
+                thermostaat.Temperatuur = 100;
+                Console.WriteLine("Dit zie je niet");
             }
-            catch (ApparaatOfflineException ex)
+            catch (GrenswaardeOverschredenException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Thermostaat: " + ex.Message);
+            }
+
+            // 2. Lamp: helderheid buiten 0…100
+            try
+            {
+                DimbareLamp testLamp = new DimbareLamp("testlamp", 60, 150);
+                Console.WriteLine("Dit zie je niet");
+            }
+            catch (GrenswaardeOverschredenException ex)
+            {
+                Console.WriteLine("Lamp: " + ex.Message);
+            }
+
+            // 3. Ventilator: onbekende stand (alleen te forceren met een cast)
+            try
+            {
+                Ventilator testVentilator = new Ventilator("testventilator", 40, (VentilatorStanden)7);
+                testVentilator.ZetAan();
+                Console.WriteLine(testVentilator.BerekenHuidigVerbruik());
+            }
+            catch (BigBrutusException ex)
+            {
+                Console.WriteLine("Ventilator: " + ex.Message);
             }
 
         }

@@ -17,7 +17,7 @@ namespace BigBrutus
             {
                 if (value < -20 || value > 60)
                 {
-                    throw new ArgumentException("Temperatuur moet tussen -20 en 60 graden zijn");
+                    throw new GrenswaardeOverschredenException(Naam);
                 }
                 temperatuur = value;
             }

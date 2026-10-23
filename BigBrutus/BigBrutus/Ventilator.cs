@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigBrutus.BigBrutus;
+using System;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -29,7 +30,7 @@ namespace BigBrutus
                 case VentilatorStanden.hoog:
                     return Vermogen / 3 * 3;
                 default:
-                    return 0; //onbekende stand, kan niet voorkomen
+                    throw new BigBrutusException($"Onbekende stand {Stand} voor {Naam}");
             }
         }
 

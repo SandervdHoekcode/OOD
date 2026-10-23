@@ -19,7 +19,7 @@ namespace BigBrutus
             {
                 if (value < 0 || value > 100)
                 {
-                    throw new ArgumentException("Helderheid moet tussen 0 en 100 zijn");
+                    throw new GrenswaardeOverschredenException(Naam);
                 }
                 helderheid = value;
             }
