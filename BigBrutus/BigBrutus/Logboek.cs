@@ -32,5 +32,14 @@ namespace BigBrutus
         {
             return gebeurtenissen.OrderBy(item => item.Tijd).ToList();
         }
+
+        public void ToonOverzicht()
+        {
+            Console.WriteLine("Loboek");
+            foreach ( T gebeurtenis in ChronologischOverzicht())
+            {
+                Console.WriteLine($"{gebeurtenis.Tijd:HH:mm:ss.fff} - {gebeurtenis.Ernst}: {gebeurtenis.Omschrijving}");
+            }
+        }
     }
 }
